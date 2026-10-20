@@ -1,0 +1,76 @@
+/* Variables & Design Tokens baseados no guia de estilo de app-design */
+:root {
+  /* Tipografia */
+  --font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Cores Principais do app-design (Light Mode) */
+  --color-bg: #F4F2EC;              /* Fundo warm off-white / areia suave */
+  --color-card-bg: #FFFFFF;         /* Fundo de cards brancos */
+  --color-card-subtle: #FAF8F5;     /* Fundo de containers secundários */
+  --color-card-hover: #FFFFFF;
+  --color-input-bg: #F4F2EC;
+  --color-text-primary: #121417;    /* Preto refinado para títulos e valores */
+  --color-text-secondary: #6B7280;  /* Cinza para rótulos e legendas */
+  --color-text-muted: #9CA3AF;      /* Cinza claro para placeholders */
+  
+  /* Cores de Destaque */
+  --accent-lime-start: #EBFD58;     /* Gradiente do card hero */
+  --accent-lime-end: #CEF836;
+  --accent-lime-text: #0F172A;
+  
+  --accent-teal: #10B981;           /* Verde receitas / status */
+  --accent-teal-subtle: #ECFDF5;
+  --accent-teal-border: #A7F3D0;
+
+  --accent-coral: #F43F5E;          /* Vermelho/Coral despesas */
+  --accent-coral-subtle: #FFF1F2;
+  --accent-coral-border: #FECDD3;
+
+  --accent-purple: #8B5CF6;
+  --accent-purple-subtle: #F5F3FF;
+
+  --color-border: #E5E2D9;          /* Linhas e divisores suaves */
+  --color-border-light: #F0EDE4;
+
+  /* Formas e Arredondamento */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Sombras Suaves e Difusas */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 10px 30px -5px rgba(24, 28, 33, 0.04), 0 2px 6px -1px rgba(24, 28, 33, 0.02);
+  --shadow-elevated: 0 20px 40px -10px rgba(24, 28, 33, 0.08);
+  --shadow-hero: 0 15px 35px -5px rgba(206, 248, 54, 0.35);
+
+  /* Transições */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tokens para Dark Mode */
+[data-theme="dark"] {
+  --color-bg: #111315;              /* Fundo grafite escuro */
+  --color-card-bg: #1A1D20;         /* Superfície de cards escuros */
+  --color-card-subtle: #22262C;     /* Fundo de itens secundários */
+  --color-card-hover: #262B32;
+  --color-input-bg: #16181B;
+  --color-text-primary: #F8FAFC;    /* Texto principal claro */
+  --color-text-secondary: #94A3B8;  /* Texto secundário acinzentado */
+  --color-text-muted: #64748B;      /* Texto de placeholder */
+
+  --color-border: #2B3037;          /* Linhas e divisores escuros */
+  --color-border-light: #252A30;
+
+  --accent-teal-subtle: rgba(16, 185, 129, 0.12);
+  --accent-teal-border: rgba(16, 185, 129, 0.3);
+
+  --accent-coral-subtle: rgba(244, 63, 94, 0.12);
+  --accent-coral-border: rgba(244, 63, 94, 0.3);
+
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  --shadow-hero: 0 15px 35px -5px rgba(206, 248, 54, 0.25);
+}

@@ -1,0 +1,21 @@
+{
+  "name": "myfinance",
+  "version": "1.0.0",
+  "description": "Controle financeiro simples e moderno para pequenas empresas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "finance",
+    "dashboard",
+    "small-business"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0"
+  }
+}

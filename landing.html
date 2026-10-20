@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFinance • Controle Financeiro Descomplicado para Pequenos Negócios</title>
+  <meta name="description" content="Conheça o MyFinance: o sistema moderno e inteligente de controle financeiro para pequenas empresas, MEIs e autônomos. Crie sua conta grátis.">
+  
+  <!-- Tipografia Urbanist do Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <!-- Folhas de Estilo -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+  <div class="landing-container">
+    
+    <!-- 1. Barra de Navegação -->
+    <header class="landing-nav">
+      <a href="landing.html" class="landing-brand">
+        <div class="brand-logo-icon">MF</div>
+        <div class="landing-brand-text">
+          <h1>MyFinance</h1>
+          <span>Pequenos Negócios</span>
+        </div>
+      </a>
+
+      <ul class="landing-nav-links">
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#vantagens">Vantagens</a></li>
+        <li><a href="#depoimentos">Casos de Sucesso</a></li>
+        <li><a href="index.html">Modo Demonstração</a></li>
+      </ul>
+
+      <div class="landing-nav-actions">
+        <!-- Alternador Dark Mode -->
+        <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar Modo Escuro" aria-label="Alternar Tema">
+          <span id="theme-icon">🌙</span>
+        </button>
+
+        <a href="#auth" class="btn-pill btn-pill-lime" id="nav-auth-btn">
+          Criar Conta Grátis
+        </a>
+      </div>
+    </header>
+
+    <!-- 2. Hero Section com Apresentação e Formulário de Auth -->
+    <main>
+      <section class="landing-hero">
+        
+        <!-- Coluna da Esquerda: Pitch & Proposta de Valor -->
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span>✨</span> Controle Financeiro Inteligente em Nuvem
+          </div>
+
+          <h2 class="hero-title">
+            O caixa da sua empresa no azul, <span class="highlight-lime">sem planilhas</span> confusas.
+          </h2>
+
+          <p class="hero-subtitle">
+            Feito sob medida para pequenos negócios, prestadores de serviço e MEIs. Saiba em 5 segundos seu saldo real, registre despesas em poucos cliques e tome decisões seguras para o seu negócio crescer.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#auth" class="btn-pill btn-pill-lime">
+              <span>Cadastrar Gratuitamente</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <button type="button" class="btn-pill btn-pill-ghost" id="btn-hero-demo">
+              Ver Demonstração Interativa ↗
+            </button>
+          </div>
+
+          <div class="hero-social-proof">
+            <div class="avatars-cluster">
+              <span>👩‍💻</span>
+              <span>👨‍💼</span>
+              <span>🛍️</span>
+              <span>💼</span>
+            </div>
+            <span>Usado diariamente por estúdios criativos, lojistas e consultores.</span>
+          </div>
+        </div>
+
+        <!-- Coluna da Direita: Card de Autenticação (Login / Cadastro) -->
+        <div class="hero-auth-card" id="auth">
+          <div class="auth-card-container">
+            
+            <!-- Abas Alternadoras (Login vs Cadastro) -->
+            <div class="auth-tabs-pill" role="tablist">
+              <button type="button" class="auth-tab-btn active" id="tab-signup" role="tab" aria-selected="true">
+                Criar Conta
+              </button>
+              <button type="button" class="auth-tab-btn" id="tab-login" role="tab" aria-selected="false">
+                Entrar
+              </button>
+            </div>
+
+            <!-- Caixa de Feedback (Alertas de Erro / Sucesso) -->
+            <div id="auth-feedback" class="auth-feedback-box"></div>
+
+            <!-- Formulário 1: Cadastro (Criar Conta) -->
+            <form id="form-signup" class="auth-form">
+              <div class="auth-field">
+                <label for="signup-name">Seu Nome Completo</label>
+                <input type="text" id="signup-name" placeholder="Ex: Juliana Silva" required autocomplete="name">
+              </div>
+
+              <div class="auth-field">
+                <label for="signup-business">Nome da sua Empresa ou Negócio</label>
+                <input type="text" id="signup-business" placeholder="Ex: Studio Criativo Design" required>
+              </div>
+
+              <div class="auth-field">
+                <label for="signup-email">Email Profissional</label>
+                <input type="email" id="signup-email" placeholder="seuemail@empresa.com" required autocomplete="email">
+              </div>
+
+              <div class="auth-field">
+                <label for="signup-password">Senha de Acesso</label>
+                <input type="password" id="signup-password" placeholder="Mínimo de 6 caracteres" required minlength="6" autocomplete="new-password">
+              </div>
+
+              <button type="submit" class="btn-pill btn-pill-lime" id="btn-submit-signup" style="width: 100%; margin-top: 10px;">
+                <span>Criar Minha Conta Grátis</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
+
+            <!-- Formulário 2: Login (Entrar) -->
+            <form id="form-login" class="auth-form" style="display: none;">
+              <div class="auth-field">
+                <label for="login-email">Seu Email</label>
+                <input type="email" id="login-email" placeholder="seuemail@empresa.com" required autocomplete="email">
+              </div>
+
+              <div class="auth-field">
+                <label for="login-password">Sua Senha</label>
+                <input type="password" id="login-password" placeholder="Sua senha secreta" required autocomplete="current-password">
+              </div>
+
+              <button type="submit" class="btn-pill btn-pill-dark" id="btn-submit-login" style="width: 100%; margin-top: 10px;">
+                <span>Acessar Meu Painel</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
+
+            <div class="auth-divider">
+              <span>OU</span>
+            </div>
+
+            <!-- Botão de Acesso Direto Modo Convidado -->
+            <button type="button" class="btn-pill btn-pill-ghost" id="btn-demo-mode" style="width: 100%; font-size: 13px;">
+              Acessar Modo Demonstração (Sem Login) →
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 3. Seção Bento Grid: Vantagens e Recursos Visuais -->
+      <section class="landing-features-section" id="recursos">
+        <div class="section-badge-center">
+          <div class="hero-pill-badge" style="margin-bottom: 8px;">Por que o MyFinance?</div>
+          <h2>Simplicidade que gera resultados</h2>
+          <p>Esqueça os softwares pesados e burocráticos. Tudo no MyFinance é pensado para agilidade.</p>
+        </div>
+
+        <div class="bento-features-grid">
+          
+          <!-- Card Destaque Limão: Saldo em Tempo Real -->
+          <div class="feature-bento-card feature-bento-hero">
+            <div class="feature-icon-bubble">⚡</div>
+            <div>
+              <h3>Controle de Caixa Instantâneo</h3>
+              <p>
+                Visualize seu saldo líquido consolidado no primeiro segundo. Entenda imediatamente se suas receitas superam as despesas do mês com indicadores visuais de saúde financeira.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Categorização Personalizada -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">🏷️</div>
+            <div>
+              <h3>Categorias Sob Medida</h3>
+              <p>
+                Crie e organize categorias com ícones expressivos específicas para o seu ramo (Vendas, Consultoria, Fornecedores, Anúncios).
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Nuvem Supabase PostgreSQL -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">☁️</div>
+            <div>
+              <h3>Nuvem Segura com Supabase</h3>
+              <p>
+                Seus dados protegidos por PostgreSQL de padrão bancário com Row Level Security (RLS) e sincronização contínua em tempo real entre abas e aparelhos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: Relatórios em 1 Clique -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">📑</div>
+            <div>
+              <h3>Relatórios & Exportação CSV</h3>
+              <p>
+                Filtre por mês corrente, últimos 30 dias ou período customizado. Exporte para planilha Excel/CSV ou imprima em PDF para envio à contabilidade.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5: Dark Mode & Design Premium -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">🌙</div>
+            <div>
+              <h3>Modo Escuro & Design Moderno</h3>
+              <p>
+                Interface inspirada em design de alto nível com tipografia fluida Urbanist, bordas arredondadas e suavidade visual para não cansar sua visão.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. Seção Personas e Casos Reais -->
+      <section class="landing-personas-section" id="depoimentos">
+        <div class="section-badge-center">
+          <div class="hero-pill-badge" style="margin-bottom: 8px;">Depoimentos</div>
+          <h2>Feito para quem faz acontecer</h2>
+          <p>Veja como empreendedores reais transformaram sua gestão com o MyFinance.</p>
+        </div>
+
+        <div class="personas-grid">
+          
+          <div class="persona-card">
+            <p class="persona-quote">
+              "Antes eu passava o domingo inteiro tentando fechar planilha de cliente e esquecia o que tinha gasto com software. Com o MyFinance, registro na hora pelo celular e sei exatamente quanto posso retirar de pró-labore."
+            </p>
+            <div class="persona-author">
+              <div class="persona-avatar">JS</div>
+              <div class="persona-meta">
+                <h4>Juliana Silva, 32 anos</h4>
+                <span>Proprietária de Studio Criativo Digital</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="persona-card">
+            <p class="persona-quote">
+              "Eu não entendo de termos difíceis de contabilidade. Queria só ver o dinheiro entrando das vendas da loja e o dinheiro saindo para os fornecedores. As cores verde e vermelha e o saldo limão facilitaram tudo."
+            </p>
+            <div class="persona-author">
+              <div class="persona-avatar">MO</div>
+              <div class="persona-meta">
+                <h4>Marcos Oliveira, 41 anos</h4>
+                <span>Comerciante e Pequeno Lojista</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- 5. Rodapé -->
+    <footer class="landing-footer">
+      <div style="margin-bottom: 12px; font-weight: 700; font-size: 15px; color: var(--color-text-primary);">
+        MyFinance • Gestão Financeira para Pequenos Negócios
+      </div>
+      <p style="margin: 0 0 16px 0;">
+        Desenvolvido com padrão de design limpo e infraestrutura Supabase PostgreSQL Cloud.
+      </p>
+      <div>
+        <a href="index.html">Acessar Painel</a> • 
+        <a href="#auth">Criar Conta</a> • 
+        <a href="#recursos">Recursos</a>
+      </div>
+      <div style="margin-top: 20px; font-size: 11px; opacity: 0.7;">
+        © 2026 MyFinance. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
+</body>
+</html>

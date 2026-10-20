@@ -1,0 +1,506 @@
+/* Estilos da Página de Apresentação e Autenticação (MyFinance Landing & Auth) */
+
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+/* 1. Header / Navbar */
+.landing-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  background-color: rgba(244, 242, 236, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .landing-nav {
+  background-color: rgba(17, 19, 21, 0.85);
+}
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.landing-brand .brand-logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent-lime-start), var(--accent-lime-end));
+  color: #0F172A;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(206, 248, 54, 0.35);
+}
+
+.landing-brand-text h1 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+
+.landing-brand-text span {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-nav-links a {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 14px;
+  transition: color var(--transition-fast);
+}
+
+.landing-nav-links a:hover {
+  color: var(--color-text-primary);
+}
+
+.landing-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* 2. Hero Section */
+.landing-hero {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 24px 80px 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+  margin-bottom: 20px;
+  color: var(--color-text-primary);
+}
+
+.hero-title .highlight-lime {
+  background: linear-gradient(135deg, var(--accent-lime-start), var(--accent-lime-end));
+  padding: 2px 10px;
+  border-radius: 12px;
+  color: #0F172A;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 36px;
+  max-width: 540px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.avatars-cluster {
+  display: flex;
+}
+
+.avatars-cluster span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--color-bg);
+  background-color: var(--color-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  margin-left: -8px;
+}
+
+.avatars-cluster span:first-child {
+  margin-left: 0;
+}
+
+/* 3. Auth Card (Cadastro & Login) */
+.auth-card-container {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-tabs-pill {
+  display: flex;
+  background-color: var(--color-card-subtle);
+  border-radius: var(--radius-pill);
+  padding: 5px;
+  margin-bottom: 28px;
+  border: 1px solid var(--color-border);
+}
+
+.auth-tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.auth-tab-btn.active {
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.auth-field input {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-input-bg);
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  transition: all var(--transition-fast);
+}
+
+.auth-field input:focus {
+  outline: none;
+  border-color: #0F172A;
+  box-shadow: 0 0 0 3px rgba(206, 248, 54, 0.4);
+}
+
+[data-theme="dark"] .auth-field input:focus {
+  border-color: var(--accent-lime-start);
+}
+
+.auth-feedback-box {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.feedback-error {
+  background-color: var(--accent-coral-subtle);
+  border: 1px solid var(--accent-coral-border);
+  color: var(--accent-coral);
+}
+
+.feedback-success {
+  background-color: var(--accent-teal-subtle);
+  border: 1px solid var(--accent-teal-border);
+  color: var(--accent-teal);
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 18px 0;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.auth-divider span {
+  padding: 0 10px;
+}
+
+/* 4. Bento Grid de Demonstração e Vantagens */
+.landing-features-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 24px 80px 24px;
+}
+
+.section-badge-center {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-badge-center h2 {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  margin: 10px 0;
+}
+
+.section-badge-center p {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+}
+
+.bento-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature-bento-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.feature-bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.feature-bento-hero {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--accent-lime-start) 0%, var(--accent-lime-end) 100%);
+  color: #0F172A;
+  border: none;
+}
+
+.feature-bento-hero h3 {
+  color: #0F172A !important;
+}
+
+.feature-bento-hero p {
+  color: rgba(15, 23, 42, 0.85) !important;
+  font-weight: 500;
+}
+
+.feature-icon-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-card-subtle);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.feature-bento-hero .feature-icon-bubble {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+.feature-bento-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+.feature-bento-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* 5. Depoimentos / Personas */
+.landing-personas-section {
+  background-color: var(--color-card-subtle);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 80px 24px;
+}
+
+.personas-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.persona-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.persona-quote {
+  font-size: 16px;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 24px;
+  color: var(--color-text-primary);
+}
+
+.persona-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.persona-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-lime-start), var(--accent-lime-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  color: #0F172A;
+}
+
+.persona-meta h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.persona-meta span {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* 6. Footer */
+.landing-footer {
+  padding: 48px 24px;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.landing-footer a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .landing-hero {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+  }
+  .hero-title {
+    font-size: 36px;
+  }
+  .bento-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-bento-hero {
+    grid-column: span 1;
+  }
+  .personas-grid {
+    grid-template-columns: 1fr;
+  }
+  .landing-nav {
+    padding: 16px 20px;
+  }
+  .landing-nav-links {
+    display: none;
+  }
+}
