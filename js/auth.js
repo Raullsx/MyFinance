@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const navAuthBtn = document.getElementById('nav-auth-btn');
         if (navAuthBtn) {
           navAuthBtn.textContent = 'Acessar Meu Painel →';
-          navAuthBtn.href = 'index.html';
+          navAuthBtn.href = 'app.html';
         }
       }
     } catch (e) {
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
           showFeedback('success', 'Login realizado com sucesso! Redirecionando...');
           setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = 'app.html';
           }, 800);
         }
       } catch (err) {
@@ -237,13 +237,13 @@ document.addEventListener('DOMContentLoaded', async () => {
           } else if (data.session) {
             showFeedback('success', 'Conta criada com sucesso! Redirecionando...');
             setTimeout(() => {
-              window.location.href = 'index.html';
+              window.location.href = 'app.html';
             }, 800);
           } else {
             // Caso exija confirmação por email
             showFeedback('success', 'Conta criada! Se a confirmação de email estiver habilitada, verifique sua caixa de entrada.');
             setTimeout(() => {
-              window.location.href = 'index.html';
+              window.location.href = 'app.html';
             }, 1500);
           }
         }
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // ==========================================
   function activateDemoMode() {
     localStorage.setItem('myfinance_guest_mode', 'true');
-    window.location.href = 'index.html';
+    window.location.href = 'app.html';
   }
 
   if (btnDemoMode) btnDemoMode.addEventListener('click', activateDemoMode);

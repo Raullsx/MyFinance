@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyFinance • Controle Financeiro para Pequenos Negócios</title>
-  <meta name="description" content="Sistema intuitivo e moderno de gestão e controle financeiro para pequenas empresas e autônomos.">
+  <title>MyFinance • Controle Financeiro Descomplicado para Pequenos Negócios</title>
+  <meta name="description" content="Conheça o MyFinance: o sistema moderno e inteligente de controle financeiro para pequenas empresas, MEIs e autônomos. Crie sua conta grátis.">
   
   <!-- Tipografia Urbanist do Design System -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,532 +15,297 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
 
-  <div class="app-layout">
+  <div class="landing-container">
     
-    <!-- Sidebar de Navegação -->
-    <aside class="sidebar">
-      <a href="#" class="brand-badge">
+    <!-- 1. Barra de Navegação -->
+    <header class="landing-nav">
+      <a href="/" class="landing-brand">
         <div class="brand-logo-icon">MF</div>
-        <div class="brand-info">
+        <div class="landing-brand-text">
           <h1>MyFinance</h1>
           <span>Pequenos Negócios</span>
         </div>
       </a>
 
-      <nav class="nav-section">
-        <div class="nav-title">Menu Principal</div>
-        <button type="button" class="nav-item active">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7"></rect>
-            <rect x="14" y="3" width="7" height="7"></rect>
-            <rect x="14" y="14" width="7" height="7"></rect>
-            <rect x="3" y="14" width="7" height="7"></rect>
-          </svg>
-          Visão Geral
-        </button>
-        <button type="button" class="nav-item" id="sidebar-btn-categories" onclick="document.getElementById('btn-open-categories').click()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7.01" y2="7"></line>
-          </svg>
-          Categorias
-        </button>
-        <button type="button" class="nav-item" id="sidebar-btn-reports" onclick="document.getElementById('btn-open-report').click()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          Relatórios & Exportar
-        </button>
-      </nav>
+      <ul class="landing-nav-links">
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#vantagens">Vantagens</a></li>
+        <li><a href="#depoimentos">Casos de Sucesso</a></li>
+        <li><a href="app.html">Modo Demonstração</a></li>
+      </ul>
 
-      <div class="sidebar-footer" id="sidebar-user-footer">
-        <div class="business-avatar" id="sidebar-avatar">SB</div>
-        <div class="business-details" style="flex: 1; min-width: 0;">
-          <span class="business-name" id="sidebar-user-business" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Studio Criativo</span>
-          <span class="business-plan" id="sidebar-user-name" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Modo Demonstração</span>
-        </div>
-        <button type="button" class="btn-icon-action" id="btn-logout" title="Encerrar Sessão / Voltar ao Início" aria-label="Encerrar Sessão" style="color: var(--color-text-secondary);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
-          </svg>
+      <div class="landing-nav-actions">
+        <!-- Alternador Dark Mode -->
+        <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar Modo Escuro" aria-label="Alternar Tema">
+          <span id="theme-icon">🌙</span>
         </button>
+
+        <a href="#auth" class="btn-pill btn-pill-lime" id="nav-auth-btn">
+          Criar Conta Grátis
+        </a>
       </div>
-    </aside>
+    </header>
 
-    <!-- Conteúdo Principal -->
-    <main class="main-content">
-      
-      <!-- Top Header -->
-      <header class="top-header">
-        <div class="header-greeting">
-          <h2>Olá, Empreendedor 👋</h2>
-          <p id="current-date-display">Carregando data...</p>
-        </div>
-
-        <div class="header-actions">
-          <!-- Status de Conexão Supabase -->
-          <button id="btn-supabase-status" class="btn-supabase-status status-warning" title="Gerenciar Conexão com Supabase Cloud" aria-label="Status Supabase">
-            <span class="status-dot"></span>
-            <span id="supabase-status-label">Supabase</span>
-          </button>
-
-          <!-- Alternador Dark Mode -->
-          <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar Modo Escuro" aria-label="Alternar Tema">
-            <span id="theme-icon">🌙</span>
-          </button>
-
-          <!-- Botão Gerenciar Categorias -->
-          <button id="btn-open-categories" class="btn-pill btn-pill-ghost">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-              <line x1="7" y1="7" x2="7.01" y2="7"></line>
-            </svg>
-            Categorias
-          </button>
-
-          <!-- Botão Relatórios -->
-          <button id="btn-open-report" class="btn-pill btn-pill-ghost">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-            </svg>
-            Relatórios
-          </button>
-
-          <!-- Botão Novo Lançamento -->
-          <button id="btn-open-modal" class="btn-pill btn-pill-dark">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-            Novo Lançamento
-          </button>
-        </div>
-      </header>
-
-      <!-- Bento Grid com Métricas Principais -->
-      <section class="metrics-bento-grid" aria-label="Resumo Financeiro">
+    <!-- 2. Hero Section com Apresentação e Formulário de Auth -->
+    <main>
+      <section class="landing-hero">
         
-        <!-- Card 1: Hero Saldo Atual (Amarelo-Limão Vibrante) -->
-        <div class="card-bento card-bento-hero">
-          <div class="metric-card-header">
-            <span class="metric-label">Saldo Atual em Caixa</span>
-            <div class="metric-icon-wrap icon-hero">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
-            </div>
-          </div>
-          <div class="metric-value" id="current-balance">R$ 0,00</div>
-          <div class="metric-footer">
-            <span class="metric-badge" id="balance-status-badge">● Saudável</span>
-            <span class="metric-subtext">Disponibilidade líquida</span>
-          </div>
-        </div>
-
-        <!-- Card 2: Total de Receitas -->
-        <div class="card-bento">
-          <div class="metric-card-header">
-            <span class="metric-label">Total de Receitas</span>
-            <div class="metric-icon-wrap icon-income">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="5 12 12 5 19 12"></polyline>
-              </svg>
-            </div>
-          </div>
-          <div class="metric-value" id="total-income">R$ 0,00</div>
-          <div class="metric-footer">
-            <span class="metric-badge badge-income" id="income-count-badge">0 entradas</span>
-            <span class="metric-subtext">Entradas registradas</span>
-          </div>
-        </div>
-
-        <!-- Card 3: Total de Despesas -->
-        <div class="card-bento">
-          <div class="metric-card-header">
-            <span class="metric-label">Total de Despesas</span>
-            <div class="metric-icon-wrap icon-expense">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
-            </div>
-          </div>
-          <div class="metric-value" id="total-expenses">R$ 0,00</div>
-          <div class="metric-footer">
-            <span class="metric-badge badge-expense" id="expense-count-badge">0 saídas</span>
-            <span class="metric-subtext">Custos operacionais</span>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- Painel de Transações Recentes -->
-      <section class="transactions-panel" id="transactions-section">
-        <div class="panel-header">
-          <div class="panel-title-area">
-            <h3>Lançamentos Recentes</h3>
-            <p>Gerencie o histórico de entradas e saídas do seu caixa</p>
+        <!-- Coluna da Esquerda: Pitch & Proposta de Valor -->
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span>✨</span> Controle Financeiro Inteligente em Nuvem
           </div>
 
-          <div class="filters-toolbar">
-            <!-- Barra de Busca -->
-            <div class="search-input-wrap">
-              <span class="search-icon">🔍</span>
-              <input type="text" id="search-input" class="search-input" placeholder="Buscar por descrição, valor ou categoria...">
-            </div>
+          <h2 class="hero-title">
+            O caixa da sua empresa no azul, <span class="highlight-lime">sem planilhas</span> confusas.
+          </h2>
 
-            <!-- Filtros em Pílula -->
-            <div class="pill-group" role="tablist">
-              <button class="filter-pill active" data-filter="all">Todas</button>
-              <button class="filter-pill" data-filter="income">Receitas</button>
-              <button class="filter-pill" data-filter="expense">Despesas</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Lista Dinâmica -->
-        <div class="transactions-list" id="transactions-list">
-          <!-- Itens injetados via JavaScript com Event Delegation -->
-        </div>
-
-        <!-- Estado Vazio -->
-        <div class="empty-state" id="empty-state" style="display: none;">
-          <div class="empty-state-icon">📋</div>
-          <h4>Nenhum lançamento encontrado</h4>
-          <p>Cadastre uma nova receita ou despesa para começar a acompanhar o seu negócio.</p>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- Modal 1: Novo / Editar Lançamento -->
-  <div class="modal-overlay" id="modal-transaction" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="modal-title">Novo Lançamento</h3>
-        <button class="btn-close-modal" id="btn-close-modal" aria-label="Fechar modal">✕</button>
-      </div>
-
-      <form id="form-transaction" class="form-transaction">
-        <!-- Toggle Receita / Despesa -->
-        <div class="type-toggle-wrap">
-          <button type="button" class="type-toggle-btn active-income" id="toggle-income">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="19" x2="12" y2="5"></line>
-              <polyline points="5 12 12 5 19 12"></polyline>
-            </svg>
-            Receita
-          </button>
-          <button type="button" class="type-toggle-btn" id="toggle-expense">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-            Despesa
-          </button>
-        </div>
-        <input type="hidden" id="tx-type" value="income">
-
-        <!-- Descrição -->
-        <div class="form-group">
-          <label for="tx-description" class="form-label">Descrição do Lançamento</label>
-          <input type="text" id="tx-description" class="form-control" placeholder="Ex: Venda de Produto, Aluguel do Mês..." required>
-        </div>
-
-        <!-- Valor e Categoria -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="tx-amount" class="form-label">Valor (R$)</label>
-            <input type="number" id="tx-amount" class="form-control" step="0.01" min="0.01" placeholder="0,00" required>
-          </div>
-          <div class="form-group">
-            <label for="tx-category" class="form-label">Categoria</label>
-            <select id="tx-category" class="form-control" required>
-              <!-- Preenchido dinamicamente via JS -->
-            </select>
-          </div>
-        </div>
-
-        <!-- Data -->
-        <div class="form-group">
-          <label for="tx-date" class="form-label">Data da Operação</label>
-          <input type="date" id="tx-date" class="form-control" required>
-        </div>
-
-        <!-- Ações do Modal -->
-        <div class="modal-actions">
-          <button type="button" class="btn-pill btn-pill-ghost" id="btn-cancel-modal">Cancelar</button>
-          <button type="submit" class="btn-pill btn-pill-dark" id="btn-submit-tx">Salvar Lançamento</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal 2: Gerenciar Categorias -->
-  <div class="modal-overlay" id="modal-categories" role="dialog" aria-modal="true" aria-labelledby="cat-modal-title">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="cat-modal-title">Gerenciar Categorias</h3>
-        <button class="btn-close-modal" id="btn-close-categories" aria-label="Fechar modal">✕</button>
-      </div>
-
-      <div class="categories-manager-body">
-        <!-- Alternador Receita / Despesa de Categorias -->
-        <div class="type-toggle-wrap">
-          <button type="button" class="type-toggle-btn active-income" id="cat-toggle-income">Categorias de Receita</button>
-          <button type="button" class="type-toggle-btn" id="cat-toggle-expense">Categorias de Despesa</button>
-        </div>
-
-        <!-- Formulário Adicionar Nova Categoria -->
-        <form id="form-add-category" class="category-add-box">
-          <h4>Nova Categoria</h4>
-          <div class="category-add-inputs">
-            <input type="text" id="new-cat-icon" class="form-control" style="width: 70px; text-align: center;" placeholder="🏷️" maxlength="2" title="Emoji representativo">
-            <input type="text" id="new-cat-name" class="form-control" style="flex: 1;" placeholder="Nome da categoria..." required>
-            <button type="submit" class="btn-pill btn-pill-dark" style="padding: 12px 18px;">+ Adicionar</button>
-          </div>
-        </form>
-
-        <!-- Lista de Chips de Categorias -->
-        <div class="categories-list-wrap">
-          <label class="form-label">Categorias Ativas (clique em ✕ para excluir):</label>
-          <div class="categories-chips-grid" id="categories-chips-list">
-            <!-- Chips injetados dinamicamente via JS -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 3: Relatórios Financeiros & Exportação -->
-  <div class="modal-overlay" id="modal-report" role="dialog" aria-modal="true" aria-labelledby="report-modal-title">
-    <div class="modal-card modal-card-lg">
-      <div class="modal-header">
-        <h3 id="report-modal-title">Relatório & Exportação Financeira</h3>
-        <button class="btn-close-modal" id="btn-close-report" aria-label="Fechar modal">✕</button>
-      </div>
-
-      <div class="form-report">
-        <!-- Filtros do Relatório -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="report-period" class="form-label">Período</label>
-            <select id="report-period" class="form-control">
-              <option value="all">Todo o Histórico</option>
-              <option value="current_month" selected>Este Mês</option>
-              <option value="last_month">Mês Anterior</option>
-              <option value="last_30_days">Últimos 30 Dias</option>
-              <option value="current_year">Ano Atual</option>
-              <option value="custom">Período Personalizado...</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="report-type" class="form-label">Tipo de Movimentação</label>
-            <select id="report-type" class="form-control">
-              <option value="all">Todas (Receitas e Despesas)</option>
-              <option value="income">Somente Receitas</option>
-              <option value="expense">Somente Despesas</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Intervalo Personalizado (se selecionado) -->
-        <div class="form-row" id="report-custom-dates" style="display: none;">
-          <div class="form-group">
-            <label for="report-start-date" class="form-label">Data Inicial</label>
-            <input type="date" id="report-start-date" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="report-end-date" class="form-label">Data Final</label>
-            <input type="date" id="report-end-date" class="form-control">
-          </div>
-        </div>
-
-        <!-- Resumo Consolidado do Período -->
-        <div class="report-summary-cards">
-          <div class="report-metric-box">
-            <span>Receitas no Período</span>
-            <strong id="report-income-total" style="color: #10B981;">R$ 0,00</strong>
-          </div>
-          <div class="report-metric-box">
-            <span>Despesas no Período</span>
-            <strong id="report-expense-total" style="color: #F43F5E;">R$ 0,00</strong>
-          </div>
-          <div class="report-metric-box">
-            <span>Resultado Líquido</span>
-            <strong id="report-balance-total">R$ 0,00</strong>
-          </div>
-        </div>
-
-        <!-- Prévia das Transações -->
-        <div class="report-preview-table-wrap">
-          <table class="report-table">
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Tipo</th>
-                <th>Categoria</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-              </tr>
-            </thead>
-            <tbody id="report-table-body">
-              <!-- Linhas injetadas via JS -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Botões de Ação para Exportação -->
-        <div class="modal-actions" style="justify-content: space-between;">
-          <button type="button" class="btn-pill btn-pill-ghost" id="btn-export-csv">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Exportar Planilha (CSV)
-          </button>
-
-          <button type="button" class="btn-pill btn-pill-dark" id="btn-print-report">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 6 2 18 2 18 9"></polyline>
-              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-              <rect x="6" y="14" width="12" height="8"></rect>
-            </svg>
-            Imprimir / Salvar PDF
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 4: Confirmação de Exclusão Customizada -->
-  <div class="modal-overlay" id="modal-confirm-delete" role="dialog" aria-modal="true" aria-labelledby="delete-confirm-title">
-    <div class="modal-card" style="max-width: 420px; text-align: center;">
-      <div style="font-size: 40px; margin-bottom: 12px;">🗑️</div>
-      <h3 id="delete-confirm-title" style="font-size: 20px; margin-bottom: 8px;">Excluir Lançamento?</h3>
-      <p id="delete-confirm-text" style="color: var(--color-text-secondary); font-size: 14px; margin-bottom: 24px;">
-        Esta ação não poderá ser desfeita.
-      </p>
-      <div style="display: flex; justify-content: center; gap: 12px;">
-        <button type="button" class="btn-pill btn-pill-ghost" id="btn-cancel-delete">Cancelar</button>
-        <button type="button" class="btn-pill" id="btn-confirm-delete" style="background-color: var(--accent-coral); color: #FFFFFF;">Sim, Excluir</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 5: Gerenciamento e Conexão Supabase Cloud -->
-  <div class="modal-overlay" id="modal-supabase" role="dialog" aria-modal="true" aria-labelledby="modal-supabase-title">
-    <div class="modal-card" style="max-width: 580px;">
-      <div class="modal-header">
-        <div>
-          <h3 id="modal-supabase-title">Integração Supabase Cloud</h3>
-          <p class="modal-subtitle">Banco de dados PostgreSQL e sincronização em tempo real</p>
-        </div>
-        <button class="modal-close" id="btn-close-supabase" aria-label="Fechar modal">&times;</button>
-      </div>
-
-      <div class="modal-body" style="padding-top: 10px;">
-        <!-- Card de Status do Supabase -->
-        <div class="supabase-info-card">
-          <div class="supabase-info-row">
-            <span class="supabase-info-label">Status da Conexão:</span>
-            <span id="supabase-modal-status-badge" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 13px;">
-              <span class="status-dot"></span>
-              <span id="supabase-modal-status-text">Verificando...</span>
-            </span>
-          </div>
-          <div class="supabase-info-row">
-            <span class="supabase-info-label">Project ID:</span>
-            <span class="supabase-info-value">tjfjpivlqoucmlcadjfk</span>
-          </div>
-          <div class="supabase-info-row">
-            <span class="supabase-info-label">API Endpoint:</span>
-            <span class="supabase-info-value">https://tjfjpivlqoucmlcadjfk.supabase.co</span>
-          </div>
-          <div class="supabase-info-row">
-            <span class="supabase-info-label">Sincronização Realtime:</span>
-            <span id="supabase-modal-realtime-status" style="font-size: 12px; font-weight: 600; color: #10B981;">Ativada</span>
-          </div>
-        </div>
-
-        <!-- Alerta de Tabelas Pendentes (visível apenas se tabelas não existirem) -->
-        <div id="supabase-setup-alert" class="supabase-alert-box" style="display: none;">
-          <strong>⚡ Atenção: Crie as tabelas no Supabase SQL Editor</strong>
-          <p style="margin: 8px 0 12px 0;">
-            O projeto está conectado, mas as tabelas <code>transactions</code> e <code>categories</code> precisam ser criadas no seu banco de dados:
+          <p class="hero-subtitle">
+            Feito sob medida para pequenos negócios, prestadores de serviço e MEIs. Saiba em 5 segundos seu saldo real, registre despesas em poucos cliques e tome decisões seguras para o seu negócio crescer.
           </p>
-          <ol style="margin: 0 0 12px 20px; padding: 0;">
-            <li>Abra o <strong>SQL Editor</strong> do seu Supabase Dashboard.</li>
-            <li>Clique em <strong>"Copiar Script SQL"</strong> abaixo.</li>
-            <li>Cole no editor e clique em <strong>Run</strong>. Pronto!</li>
-          </ol>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button type="button" class="btn-pill btn-pill-lime" id="btn-copy-sql">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+
+          <div class="hero-ctas">
+            <a href="#auth" class="btn-pill btn-pill-lime">
+              <span>Cadastrar Gratuitamente</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-              Copiar Script SQL Completo
-            </button>
-            <a href="https://supabase.com/dashboard/project/tjfjpivlqoucmlcadjfk/sql/new" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-ghost" style="text-decoration: none;">
-              Abrir SQL Editor ↗
             </a>
+
+            <button type="button" class="btn-pill btn-pill-ghost" id="btn-hero-demo">
+              Ver Demonstração Interativa ↗
+            </button>
+          </div>
+
+          <div class="hero-social-proof">
+            <div class="avatars-cluster">
+              <span>👩‍💻</span>
+              <span>👨‍💼</span>
+              <span>🛍️</span>
+              <span>💼</span>
+            </div>
+            <span>Usado diariamente por estúdios criativos, lojistas e consultores.</span>
           </div>
         </div>
 
-        <!-- Instruções de Conexão Ativa (visível quando conectado) -->
-        <div id="supabase-success-card" style="display: none; background-color: var(--accent-teal-subtle); border: 1px solid var(--accent-teal-border); border-radius: var(--radius-md); padding: 14px 16px; margin-bottom: 18px; font-size: 13px;">
-          <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #059669; margin-bottom: 4px;">
-            <span>☁️</span> Nuvem Conectada e Sincronizada!
+        <!-- Coluna da Direita: Card de Autenticação (Login / Cadastro) -->
+        <div class="hero-auth-card" id="auth">
+          <div class="auth-card-container">
+            
+            <!-- Abas Alternadoras (Login vs Cadastro) -->
+            <div class="auth-tabs-pill" role="tablist">
+              <button type="button" class="auth-tab-btn active" id="tab-signup" role="tab" aria-selected="true">
+                Criar Conta
+              </button>
+              <button type="button" class="auth-tab-btn" id="tab-login" role="tab" aria-selected="false">
+                Entrar
+              </button>
+            </div>
+
+            <!-- Caixa de Feedback (Alertas de Erro / Sucesso) -->
+            <div id="auth-feedback" class="auth-feedback-box"></div>
+
+            <!-- Formulário 1: Cadastro (Criar Conta) -->
+            <form id="form-signup" class="auth-form">
+              <div class="auth-field">
+                <label for="signup-name">Seu Nome Completo</label>
+                <input type="text" id="signup-name" placeholder="Ex: Juliana Silva" required autocomplete="name">
+              </div>
+
+              <div class="auth-field">
+                <label for="signup-business">Nome da sua Empresa ou Negócio</label>
+                <input type="text" id="signup-business" placeholder="Ex: Studio Criativo Design" required>
+              </div>
+
+              <div class="auth-field">
+                <label for="signup-email">Email Profissional</label>
+                <input type="email" id="signup-email" placeholder="seuemail@empresa.com" required autocomplete="email">
+              </div>
+
+              <div class="auth-field">
+                <label for="signup-password">Senha de Acesso</label>
+                <input type="password" id="signup-password" placeholder="Mínimo de 6 caracteres" required minlength="6" autocomplete="new-password">
+              </div>
+
+              <button type="submit" class="btn-pill btn-pill-lime" id="btn-submit-signup" style="width: 100%; margin-top: 10px;">
+                <span>Criar Minha Conta Grátis</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
+
+            <!-- Formulário 2: Login (Entrar) -->
+            <form id="form-login" class="auth-form" style="display: none;">
+              <div class="auth-field">
+                <label for="login-email">Seu Email</label>
+                <input type="email" id="login-email" placeholder="seuemail@empresa.com" required autocomplete="email">
+              </div>
+
+              <div class="auth-field">
+                <label for="login-password">Sua Senha</label>
+                <input type="password" id="login-password" placeholder="Sua senha secreta" required autocomplete="current-password">
+              </div>
+
+              <button type="submit" class="btn-pill btn-pill-dark" id="btn-submit-login" style="width: 100%; margin-top: 10px;">
+                <span>Acessar Meu Painel</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
+
+            <div class="auth-divider">
+              <span>OU</span>
+            </div>
+
+            <!-- Botão de Acesso Direto Modo Convidado -->
+            <button type="button" class="btn-pill btn-pill-ghost" id="btn-demo-mode" style="width: 100%; font-size: 13px;">
+              Acessar Modo Demonstração (Sem Login) →
+            </button>
           </div>
-          <p style="margin: 0; color: var(--color-text-primary); font-size: 13px;">
-            Todas as transações e categorias adicionadas, editadas ou excluídas são salvas diretamente no PostgreSQL do seu projeto Supabase e refletidas instantaneamente em todos os navegadores abertos.
-          </p>
         </div>
 
-        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
-          <button type="button" class="btn-pill btn-pill-ghost" id="btn-refresh-supabase">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="23 4 23 10 17 10"></polyline>
-              <polyline points="1 20 1 14 7 14"></polyline>
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-            </svg>
-            Verificar Conexão Novamente
-          </button>
-          <button type="button" class="btn-pill btn-pill-dark" id="btn-close-supabase-modal">Fechar</button>
+      </section>
+
+      <!-- 3. Seção Bento Grid: Vantagens e Recursos Visuais -->
+      <section class="landing-features-section" id="recursos">
+        <div class="section-badge-center">
+          <div class="hero-pill-badge" style="margin-bottom: 8px;">Por que o MyFinance?</div>
+          <h2>Simplicidade que gera resultados</h2>
+          <p>Esqueça os softwares pesados e burocráticos. Tudo no MyFinance é pensado para agilidade.</p>
         </div>
+
+        <div class="bento-features-grid">
+          
+          <!-- Card Destaque Limão: Saldo em Tempo Real -->
+          <div class="feature-bento-card feature-bento-hero">
+            <div class="feature-icon-bubble">⚡</div>
+            <div>
+              <h3>Controle de Caixa Instantâneo</h3>
+              <p>
+                Visualize seu saldo líquido consolidado no primeiro segundo. Entenda imediatamente se suas receitas superam as despesas do mês com indicadores visuais de saúde financeira.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Categorização Personalizada -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">🏷️</div>
+            <div>
+              <h3>Categorias Sob Medida</h3>
+              <p>
+                Crie e organize categorias com ícones expressivos específicas para o seu ramo (Vendas, Consultoria, Fornecedores, Anúncios).
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Nuvem Supabase PostgreSQL -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">☁️</div>
+            <div>
+              <h3>Nuvem Segura com Supabase</h3>
+              <p>
+                Seus dados protegidos por PostgreSQL de padrão bancário com Row Level Security (RLS) e sincronização contínua em tempo real entre abas e aparelhos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: Relatórios em 1 Clique -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">📑</div>
+            <div>
+              <h3>Relatórios & Exportação CSV</h3>
+              <p>
+                Filtre por mês corrente, últimos 30 dias ou período customizado. Exporte para planilha Excel/CSV ou imprima em PDF para envio à contabilidade.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5: Dark Mode & Design Premium -->
+          <div class="feature-bento-card">
+            <div class="feature-icon-bubble">🌙</div>
+            <div>
+              <h3>Modo Escuro & Design Moderno</h3>
+              <p>
+                Interface inspirada em design de alto nível com tipografia fluida Urbanist, bordas arredondadas e suavidade visual para não cansar sua visão.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. Seção Personas e Casos Reais -->
+      <section class="landing-personas-section" id="depoimentos">
+        <div class="section-badge-center">
+          <div class="hero-pill-badge" style="margin-bottom: 8px;">Depoimentos</div>
+          <h2>Feito para quem faz acontecer</h2>
+          <p>Veja como empreendedores reais transformaram sua gestão com o MyFinance.</p>
+        </div>
+
+        <div class="personas-grid">
+          
+          <div class="persona-card">
+            <p class="persona-quote">
+              "Antes eu passava o domingo inteiro tentando fechar planilha de cliente e esquecia o que tinha gasto com software. Com o MyFinance, registro na hora pelo celular e sei exatamente quanto posso retirar de pró-labore."
+            </p>
+            <div class="persona-author">
+              <div class="persona-avatar">JS</div>
+              <div class="persona-meta">
+                <h4>Juliana Silva, 32 anos</h4>
+                <span>Proprietária de Studio Criativo Digital</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="persona-card">
+            <p class="persona-quote">
+              "Eu não entendo de termos difíceis de contabilidade. Queria só ver o dinheiro entrando das vendas da loja e o dinheiro saindo para os fornecedores. As cores verde e vermelha e o saldo limão facilitaram tudo."
+            </p>
+            <div class="persona-author">
+              <div class="persona-avatar">MO</div>
+              <div class="persona-meta">
+                <h4>Marcos Oliveira, 41 anos</h4>
+                <span>Comerciante e Pequeno Lojista</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- 5. Rodapé -->
+    <footer class="landing-footer">
+      <div style="margin-bottom: 12px; font-weight: 700; font-size: 15px; color: var(--color-text-primary);">
+        MyFinance • Gestão Financeira para Pequenos Negócios
       </div>
-    </div>
-  </div>
+      <p style="margin: 0 0 16px 0;">
+        Desenvolvido com padrão de design limpo e infraestrutura Supabase PostgreSQL Cloud.
+      </p>
+      <div>
+        <a href="app.html">Acessar Painel</a> • 
+        <a href="#auth">Criar Conta</a> • 
+        <a href="#recursos">Recursos</a>
+      </div>
+      <div style="margin-top: 20px; font-size: 11px; opacity: 0.7;">
+        © 2026 MyFinance. Todos os direitos reservados.
+      </div>
+    </footer>
 
-  <!-- Toast Notification Feedback -->
-  <div class="toast-notification" id="toast-notification">
-    <span>✨</span>
-    <span id="toast-message">Ação realizada com sucesso!</span>
   </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-client.js?v=2"></script>
-  <script src="js/mock-data.js?v=2"></script>
-  <script src="js/storage.js?v=2"></script>
-  <script src="js/app.js?v=2"></script>
+  <script src="js/supabase-client.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
 </body>
 </html>

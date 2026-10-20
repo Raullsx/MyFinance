@@ -1,0 +1,7 @@
+# Netlify Redirects para MyFinance
+/landing.html   /           301!
+/landing        /           301!
+/login          /           301!
+/cadastro       /           301!
+/app            /app.html   200
+/dashboard      /app.html   200

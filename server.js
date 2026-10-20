@@ -19,10 +19,10 @@ const MIME_TYPES = {
 
 const server = http.createServer((req, res) => {
   let reqPath = decodeURI(req.url.split('?')[0]);
-  if (reqPath === '/' || reqPath === '' || reqPath === '/landing' || reqPath === '/login' || reqPath === '/cadastro') {
-    reqPath = '/landing.html';
-  } else if (reqPath === '/app' || reqPath === '/dashboard') {
+  if (reqPath === '/' || reqPath === '' || reqPath === '/landing' || reqPath === '/landing.html' || reqPath === '/login' || reqPath === '/cadastro') {
     reqPath = '/index.html';
+  } else if (reqPath === '/app' || reqPath === '/dashboard') {
+    reqPath = '/app.html';
   }
 
   const filePath = path.join(ROOT, reqPath);

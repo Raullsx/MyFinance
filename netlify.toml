@@ -1,0 +1,36 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/landing.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/landing"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/login"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cadastro"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/app"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/app.html"
+  status = 200

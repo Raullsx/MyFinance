@@ -881,7 +881,7 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.removeItem('myfinance_user_name');
           localStorage.removeItem('myfinance_business_name');
           localStorage.removeItem('myfinance_guest_mode');
-          window.location.href = 'landing.html';
+          window.location.href = 'index.html';
         }
       });
     }
